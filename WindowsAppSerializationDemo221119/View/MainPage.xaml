@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="WindowsAppSerializationDemo221119.View.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsAppSerializationDemo221119"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:WindowsAppSerializationDemo221119.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Page.DataContext>
+        <viewModel:PersonsViewModel></viewModel:PersonsViewModel>
+</Page.DataContext>
+    <StackPanel Orientation="Horizontal">
+        <ListView HorizontalAlignment="Left" ItemsSource="{Binding Persons}" Height="344"  VerticalAlignment="Top" Width="300"/>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock HorizontalAlignment="Left" Width="50" TextWrapping="Wrap" Text="CPR" VerticalAlignment="Top"/>
+                <TextBox Name="CPR" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding CprNo, Mode=TwoWay}" VerticalAlignment="Top" Height="46" Width="217"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock HorizontalAlignment="Left"   Width="50" Text="FirstName" VerticalAlignment="Top"/>
+                <TextBox x:Name="FirstName" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding FirstName, Mode=TwoWay}" VerticalAlignment="Top" Height="46" Width="217"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock HorizontalAlignment="Left"   Width="50" Text="LastName" VerticalAlignment="Top"/>
+                <TextBox x:Name="LAstName" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding LastName, Mode=TwoWay}" VerticalAlignment="Top" Height="46" Width="217"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Address" VerticalAlignment="Top"/>
+                <TextBox x:Name="Address" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay}" VerticalAlignment="Top" Height="46" Width="217"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Button Content="Load" Command="{Binding LoadCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+
+
+</Page>
